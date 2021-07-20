@@ -6,3 +6,5 @@ expo install react-native-elements@2.2.1
 expo install react-navigation@4
 expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view react-navigation-stack@^1.10.3
 expo install expo-constants
+
+expo install react-navigation-drawer
