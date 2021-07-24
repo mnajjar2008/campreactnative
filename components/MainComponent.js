@@ -2,18 +2,20 @@ import React, { Component } from 'react';
 import Home from './HomeComponent';
 import Directory from './DirectoryComponent';
 import CampsiteInfo from './CampsiteInfoComponent';
+import About from './AboutComponent';
+import Contact from './ContactComponent';
+import Reservation from './ReservationComponent';
 import Constants from 'expo-constants';
 import { View, Platform, StyleSheet, Text, ScrollView, Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
-import About from './AboutComponent';
-import Contact from './ContactComponent';
 import { Icon } from 'react-native-elements';
 import SafeAreaView from 'react-native-safe-area-view';
 import { connect } from 'react-redux';
 import { fetchCampsites, fetchComments, fetchPromotions, fetchPartners } from '../redux/ActionCreators';
-import Reservation from './ReservationComponent';
+
+console.disableYellowBox = true;
 
 const mapDispatchToProps = {
     fetchCampsites,
@@ -136,18 +138,19 @@ const CustomDrawerContentComponent = props => (
 
 const MainNavigator = createDrawerNavigator(
     {
-        Home: {
-            screen: HomeNavigator,
-            navigationOptions: {
-                drawerIcon: ({ tintColor }) => <Icon name="home" type="font-awesome" size={24} color={tintColor} />,
-            },
-        },
         Directory: {
             screen: DirectoryNavigator,
             navigationOptions: {
                 drawerIcon: ({ tintColor }) => <Icon name="list" type="font-awesome" size={24} color={tintColor} />,
             },
         },
+        Home: {
+            screen: HomeNavigator,
+            navigationOptions: {
+                drawerIcon: ({ tintColor }) => <Icon name="home" type="font-awesome" size={24} color={tintColor} />,
+            },
+        },
+
         Reservation: {
             screen: ReservationNavigator,
             navigationOptions: {
