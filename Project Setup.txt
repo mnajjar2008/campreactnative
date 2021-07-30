@@ -17,3 +17,5 @@ expo install react-native-animatable
 
 
 expo install redux-persist@5.9.1
+
+expo install expo-secure-store
