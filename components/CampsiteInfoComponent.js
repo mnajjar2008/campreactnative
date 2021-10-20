@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, ScrollView, FlatList, Modal, Button, StyleSheet, Alert, PanResponder, Share } from 'react-native';
 import { Card, Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { baseUrl } from '../shared/baseUrl';
+import { baseUrlImages } from '../shared/baseUrl';
 import { postFavorite, postComment } from '../redux/ActionCreators';
 import { Input } from 'react-native-elements';
 import { Rating } from 'react-native-elements';
@@ -74,12 +74,12 @@ function RenderCampsite(props) {
     if (campsite) {
         return (
             <Animatable.View animation="fadeInDown" duration={2000} delay={1000} ref={view} {...panResponder.panHandlers}>
-                <Card featuredTitle={campsite.name} image={{ uri: baseUrl + campsite.image }}>
+                <Card featuredTitle={campsite.name} image={{ uri: baseUrlImages + campsite.image }}>
                     <Text style={{ margin: 10 }}>{campsite.description}</Text>
                     <View style={styles.cardRow}>
                         <Icon name={props.favorite ? 'heart' : 'heart-o'} type="font-awesome" color="#f50" raised reverse onPress={() => (props.favorite ? console.log('Already set as a favorite') : props.markFavorite())} />
                         <Icon name="pencil" type="font-awesome" color="#5637DD" raised reverse onPress={() => props.onShowModal()} />
-                        <Icon name={'share'} type="font-awesome" color="#5637DD" raised reverse onPress={() => shareCampsite(campsite.name, campsite.description, baseUrl + campsite.image)} />
+                        <Icon name={'share'} type="font-awesome" color="#5637DD" raised reverse onPress={() => shareCampsite(campsite.name, campsite.description, baseUrlImages + campsite.image)} />
                     </View>
                 </Card>
             </Animatable.View>
@@ -159,7 +159,7 @@ class CampsiteInfo extends Component {
                         <Rating startingValue={this.state.rating} onFinishRating={rating => this.setState({ rating: rating })} imageSize={40} showRating style={{ paddingVertical: 10 }} />
                         <Input leftIconContainerStyle={{ paddingRight: 10 }} placeholder="Author" leftIcon={{ type: 'font-awesome', name: 'user-o' }} style={styles} onChangeText={value => this.setState({ author: value })} />
                         <Input leftIconContainerStyle={{ paddingRight: 10 }} placeholder="Comment" leftIcon={{ type: 'font-awesome', name: 'comment-o' }} style={styles} onChangeText={value => this.setState({ text: value })} />
-                        <View>
+                        <View style={{ margin: 10 }}>
                             <Button
                                 onPress={() => {
                                     this.handleComment(campsiteId);

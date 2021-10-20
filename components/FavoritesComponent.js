@@ -3,7 +3,7 @@ import { FlatList, View, Text, StyleSheet, Alert } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { Loading } from './LoadingComponent';
-import { baseUrl } from '../shared/baseUrl';
+import { baseUrlImages } from '../shared/baseUrl';
 import { SwipeRow } from 'react-native-swipe-list-view';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { deleteFavorite } from '../redux/ActionCreators';
@@ -57,7 +57,7 @@ class Favorites extends Component {
                     </View>
 
                     <View>
-                        <ListItem title={item.name} subtitle={item.description} leftAvatar={{ source: { uri: baseUrl + item.image } }} onPress={() => navigate('CampsiteInfo', { campsiteId: item.id })} />
+                        <ListItem title={item.name} subtitle={item.description} leftAvatar={{ source: { uri: baseUrlImages + item.image } }} onPress={() => navigate('CampsiteInfo', { campsiteId: item.id })} />
                     </View>
                 </SwipeRow>
             );

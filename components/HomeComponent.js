@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Animated } from 'react-native';
 import { Card } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { baseUrl } from '../shared/baseUrl';
+import { baseUrlImages } from '../shared/baseUrl';
 import Loading from './LoadingComponent';
 
 const mapStateToProps = state => {
@@ -27,7 +27,7 @@ function RenderItem(props) {
     }
     if (item) {
         return (
-            <Card featuredTitle={item.name} image={{ uri: baseUrl + item.image }}>
+            <Card featuredTitle={item.name} image={{ uri: baseUrlImages + item.image }}>
                 <Text style={{ margin: 10 }}>{item.description}</Text>
             </Card>
         );
